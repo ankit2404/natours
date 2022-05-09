@@ -28,7 +28,7 @@ const sendDevError = (err, req, res) => {
     });
   } else {
     // RENDERED WEBSITE
-    console.error('Error: ', err);
+    // console.error('Error: ', err);
     res.status(err.statusCode).render('error', {
       title: 'Something went wrong',
       msg: err.message
@@ -49,7 +49,7 @@ const sendProdError = (err, req, res) => {
       //programming or unknown error: don't leak error details to client
     } else {
       //1) log error
-      console.error('Error: ', err);
+      // console.error('Error: ', err);
       //2) send generic message
       res.status(500).json({
         status: 'error',
@@ -65,7 +65,7 @@ const sendProdError = (err, req, res) => {
       //programming or unknown error: don't leak error details to client
     } else {
       //1) log error
-      console.error('Error: ', err);
+      // console.error('Error: ', err);
 
       //2) send generic message
       res.status(err.statusCode).render('error', {

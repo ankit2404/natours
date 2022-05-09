@@ -98,7 +98,7 @@ const logout = async () => {
     });
     if ((res.data.status = 'success')) location.reload(true);
   } catch (err) {
-    console.log(err.response);
+    // console.log(err.response);
     showAlert('error', 'Error logging out! Try again.');
   }
 };
@@ -178,13 +178,13 @@ const bookTour = async tourID => {
     // 1) get checkout session from API
     const session = await axios(`/api/v1/booking/checkout-session/${tourID}`);
 
-    console.log(session);
+    // console.log(session);
     // 2) create checkout form + charge credit card
     await stripe.redirectToCheckout({
       sessionId: session.data.session.id
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     showAlert('error', err);
   }
 };
