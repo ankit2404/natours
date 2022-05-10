@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 // const helmet = require('helmet');
+const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
@@ -23,6 +24,10 @@ app.enable('trust proxy');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(cors());
+
+app.options('*', cors());
 
 // 1) Global MIDDLEWARES
 app.use(express.static(path.join(__dirname, 'public')));
